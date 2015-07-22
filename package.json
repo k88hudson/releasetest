@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release:patch": "git checkout master && git merge develop && npm version patch"
+    "release:patch": "git checkout master && git merge develop && npm version patch && git push origin master --tags && git checkout develop && git merge master"
   },
   "author": "",
   "license": "ISC"
