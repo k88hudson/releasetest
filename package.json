@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release:patch": "git checkout master && git merge develop && npm version patch && git push origin master --tags && git checkout develop && git merge master"
+    "release:patch": "git fetch git@github.com:k88hudson/releasetest.git develop:_TEMP_DEVELOP && git fetch git@github.com:k88hudson/releasetest.git master:_TEMP_MASTER && git checkout _TEMP_MASTER && git merge _TEMP_DEVELOP && npm version patch && git push git@github.com:k88hudson/releasetest.git _TEMP_MASTER:master --tags && git checkout _TEMP_DEVELOP && git merge _TEMP_MASTER && git push git@github.com:k88hudson/releasetest.git _TEMP_DEVELOP:develop"
   },
   "author": "",
   "license": "ISC"
