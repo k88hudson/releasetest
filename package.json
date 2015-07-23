@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release:prep:clean": "git branch --list _TEMP_DEVELOP then git branch -D _TEMP_DEVELOP; fi",
+    "release:prep:clean": "if [ `git branch --list _TEMP_DEVELOP` ]; then git branch -D _TEMP_DEVELOP; fi",
+    "release:prep:clean2": "if [ `git branch --list _TEMP_MASTER` ]; then git branch -D _TEMP_MASTER; fi",
     "release:prep:fetch": "git fetch git@github.com:k88hudson/releasetest.git develop:_TEMP_DEVELOP && git fetch git@github.com:k88hudson/releasetest.git master:_TEMP_MASTER",
     "release:prep:mergetomaster": "git checkout _TEMP_MASTER && git merge _TEMP_DEVELOP",
     "release": "npm-run-all release:prep:* && npm version $@",
